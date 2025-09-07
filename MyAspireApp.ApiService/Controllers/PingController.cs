@@ -11,5 +11,11 @@ namespace MyAspireApp.ApiService.Controllers
         {
             return Ok("pong");
         }
+        
+        [HttpGet("health")]
+        public IActionResult Health()
+        {
+            return Ok(new { status = "OK", timestamp = DateTime.UtcNow });
+        }
     }
 }

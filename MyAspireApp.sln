@@ -4,8 +4,6 @@ VisualStudioVersion = 17.8.0.0
 MinimumVisualStudioVersion = 17.8.0.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAspireApp.AppHost", "MyAspireApp.AppHost\MyAspireApp.AppHost.csproj", "{01D5990F-0AA9-4F50-B90D-EE39836B5A4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAspireApp.ServiceDefaults", "MyAspireApp.ServiceDefaults\MyAspireApp.ServiceDefaults.csproj", "{A37AAEBE-4E60-432F-B8EA-0CC6335BA88C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAspireApp.ApiService", "MyAspireApp.ApiService\MyAspireApp.ApiService.csproj", "{1D24A5C7-F671-4983-A3C9-7D1C56BC30E1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAspireApp.Web", "MyAspireApp.Web\MyAspireApp.Web.csproj", "{6EE31EE6-02EF-44E9-849D-DBC8757A01AC}"
@@ -20,10 +18,6 @@ Global
 		{01D5990F-0AA9-4F50-B90D-EE39836B5A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D5990F-0AA9-4F50-B90D-EE39836B5A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D5990F-0AA9-4F50-B90D-EE39836B5A4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A37AAEBE-4E60-432F-B8EA-0CC6335BA88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A37AAEBE-4E60-432F-B8EA-0CC6335BA88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A37AAEBE-4E60-432F-B8EA-0CC6335BA88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A37AAEBE-4E60-432F-B8EA-0CC6335BA88C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D24A5C7-F671-4983-A3C9-7D1C56BC30E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D24A5C7-F671-4983-A3C9-7D1C56BC30E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D24A5C7-F671-4983-A3C9-7D1C56BC30E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
