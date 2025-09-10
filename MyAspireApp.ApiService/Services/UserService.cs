@@ -24,6 +24,7 @@ namespace MyAspireApp.ApiService.Services;
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
                 FirstName = dto.FirstName,
+                UserId = Guid.NewGuid(),
                 LastName = dto.LastName,
                 PhoneNumber = dto.PhoneNumber,
                 AddressCity = dto.AddressCity,
