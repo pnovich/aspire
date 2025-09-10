@@ -5,94 +5,28 @@ using MyAspireApp.ApiService.Services;
 
 namespace MyAspireApp.ApiService.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class UsersController : ControllerBase
-{
-    private readonly IUserService _userService;
-
-    public UsersController(IUserService userService)
+    [ApiController]
+    [Route("api/users")]
+    public class UserController : ControllerBase
     {
-        _userService = userService;
-    }
+        private readonly IUserService _userService;
 
-    [HttpGet]
-    public async Task<IActionResult> GetAllUsers()
-    {
-        var response = await _userService.GetAllUsers();
-        if (!response.Success)
-            return NotFound(response.Message);
-
-        return Ok(response.Data);
-    }
-
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser(int id)
-    {
-        var response = await _userService.GetUserById(id);
-        if (!response.Success)
-            return NotFound(response.Message);
-
-        return Ok(response.Data);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
-    {
-        var user = new User
+        public UserController(IUserService userService)
         {
-            FirstName = request.FirstName,
-            LastName = request.LastName,
-            AddressCountry = request.AddressCountry,
-            AddressRegion = request.AddressRegion,
-            AddressState = request.AddressState,
-            AddressCity = request.AddressCity,
-            AddressStreet = request.AddressStreet,
-            AddressStreet2 = request.AddressStreet2,
-            AddressCode = request.AddressCode,
-            PhoneNumber = request.PhoneNumber,
-            Notes = request.Notes
-        };
+            _userService = userService;
+        }
 
-        var response = await _userService.CreateUser(user);
-        if (!response.Success)
-            return BadRequest(response.Message);
-
-        return CreatedAtAction(nameof(GetUser), new { id = response.Data.Id }, response.Data);
-    }
-
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(int id, [FromBody] CreateUserRequest request)
-    {
-        var user = new User
+        [HttpPost]
+        public IActionResult CreateUser([FromBody] CreateUserRequest user)
         {
-            FirstName = request.FirstName,
-            LastName = request.LastName,
-            AddressCountry = request.AddressCountry,
-            AddressRegion = request.AddressRegion,
-            AddressState = request.AddressState,
-            AddressCity = request.AddressCity,
-            AddressStreet = request.AddressStreet,
-            AddressStreet2 = request.AddressStreet2,
-            AddressCode = request.AddressCode,
-            PhoneNumber = request.PhoneNumber,
-            Notes = request.Notes
-        };
+            User created = _userService.CreateUser(user);
+            return CreatedAtAction(nameof(CreateUser), new { id = created.Id }, created);
+        }
 
-        var response = await _userService.UpdateUser(id, user);
-        if (!response.Success)
-            return NotFound(response.Message);
-
-        return Ok(response.Data);
+        [HttpGet]
+        public ActionResult<IEnumerable<User>> GetAllUsers()
+        {
+            var users = _userService.GetAllUsers();
+            return Ok(users);
+        }
     }
-
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteUser(int id)
-    {
-        var response = await _userService.DeleteUser(id);
-        if (!response.Success)
-            return NotFound(response.Message);
-
-        return NoContent();
-    }
-}

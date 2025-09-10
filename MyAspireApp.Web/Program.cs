@@ -11,7 +11,7 @@ builder.Services.AddOutputCache();
 
 builder.Services.AddHttpClient<WeatherApiClient>(client =>
     {
-        client.BaseAddress = new("http://localhost:5312"); // ← Пряме посилання на порт
+        client.BaseAddress = new("http://localhost:5312"); 
     });
 
 var app = builder.Build();
