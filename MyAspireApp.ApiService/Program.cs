@@ -23,6 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEntryService, EntryService>();
+builder.Services.AddScoped<IWinnerService, WinnerService>();
 
 
 var app = builder.Build();
@@ -38,7 +39,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// Your endpoints
+// map endpoints
 app.MapGet("/", () => "MyAspireApp API is running!");
 app.MapGet("/test", () => "Test endpoint works!");
 app.MapGet("/health", () => Results.Ok("Healthy"));
