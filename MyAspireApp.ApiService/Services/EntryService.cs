@@ -4,6 +4,7 @@ using MyAspireApp.ApiService.Entities;
 using MyAspireApp.ApiService.Models;
 using MyAspireApp.ApiService.Models.Requests;
 using MyAspireApp.ApiService.Models.Responses;
+using Microsoft.Extensions.Logging; 
 
 
 namespace MyAspireApp.ApiService.Services;
@@ -12,14 +13,20 @@ namespace MyAspireApp.ApiService.Services;
     public class EntryService : IEntryService
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<EntryService> _logger;
 
         public EntryService(AppDbContext context)
-        {
-            _context = context;
-        }
+    {
+        _context = context;
+    }
 
         public Entry CreateEntry(CreateEntryRequest dto)
         {
+                if (!_context.Users.Any(u => u.UserId == dto.UserId))
+
+        {
+           throw new ArgumentException("wrong UserId ");
+        }
             var entry = new Entry
             {
                 CreatedDate = DateTime.UtcNow,
